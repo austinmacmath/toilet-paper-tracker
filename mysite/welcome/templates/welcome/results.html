@@ -1,0 +1,9 @@
+<h1>{{ donor.name }}</h1>
+
+<ul>
+    {% for recipient in donor.recipient_set.all %}
+    <li>{{ recipient.name }} -- {{ recipient.request}} inches</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'welcome:detail' donor.id %}">Choose again?</a>

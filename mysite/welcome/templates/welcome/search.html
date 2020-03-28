@@ -1,0 +1,8 @@
+<h1>This is the search page.</h1>
+
+<form action="{% url 'welcome:searchresult' 1%}" method = "POST">
+    {% csrf_token %}
+    <label for="search nearby">Donor ID</label>
+    <input type="search" id="search nearby" name="search nearby" value="{{ donor.id }}">
+    <input type="submit" value="search">
+</form>

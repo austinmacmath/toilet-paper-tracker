@@ -1,0 +1,12 @@
+<h1>This is the search result page.</h1>
+
+{% if object_list %}
+    <ul>
+    {% for donor in object_list %}
+        <li>{{ donor.name }}, {{ donor.points }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No donors are available.</p>
+{% endif %}
+

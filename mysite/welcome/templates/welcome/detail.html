@@ -1,0 +1,15 @@
+<h2>{{ donor.name }}</h2>
+{{ donor.phone }}
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+
+<form action="{% url 'welcome:points' donor.id %}" method="POST">
+{% csrf_token %}
+{% for recipient in donor.recipient_set.all %}
+    <input type="radio" name="recipient" id="recipient{{ forloop.counter }}" value="{{ recipient.id }}">
+    <label for="choice{{ forloop.counter }}"> {{ recipient.name }}</label>
+<br>
+{% endfor %}
+<input type="submit" value="Submit">
+</form>
