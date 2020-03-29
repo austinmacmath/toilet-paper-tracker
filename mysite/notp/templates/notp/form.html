@@ -1,0 +1,15 @@
+<h1><a href="{% url 'notp:index' %}">Home</a> Donors</h1>
+
+
+<form action="" method="POST">
+
+    {% csrf_token %}
+    <input type="text" name="name" placeholder="Name">
+    <br>
+    <input type="text" name="email" placeholder="Email">
+    <br>
+    <input type="text" name="zipcode" placeholder="Zip Code">
+    <br>
+    <input type="submit" value="Submit!">
+
+</form>

@@ -33,7 +33,7 @@ class Migration(migrations.Migration):
                 ('latitude', models.DecimalField(decimal_places=6, max_digits=8)),
                 ('longitude', models.DecimalField(decimal_places=6, max_digits=8)),
                 ('join_date', models.DateTimeField(verbose_name='date joined')),
-                ('donor', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='welcome.Donor')),
+                ('donor', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='notp.Donor')),
             ],
         ),
     ]

@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('welcome', '0002_auto_20200325_0313'),
+        ('notp', '0002_auto_20200325_0313'),
     ]
 
     operations = [
