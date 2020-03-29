@@ -1,10 +1,13 @@
+# from django.contrib.gis.geos import *
+# from django.contrib.gis.measure import D
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
 from django.db.models import Q
-from .models import Donor, Recipient
+from geopy.distance import geodesic
 from uszipcode import SearchEngine
+from .models import Donor, Recipient
 
 search = SearchEngine(simple_zipcode=True)
 
@@ -17,19 +20,28 @@ class SearchResultView(generic.ListView):
 
     def get_queryset(self):
         query = self.request.GET.get('q')
+
         recipient = Recipient()
         recipient.zipcode = query
         bound_north = search.by_zipcode(recipient.zipcode).to_dict()["bounds_north"] 
         bound_south = search.by_zipcode(recipient.zipcode).to_dict()["bounds_south"] 
         bound_west = search.by_zipcode(recipient.zipcode).to_dict()["bounds_west"]
-        bound_east = search.by_zipcode(recipient.zipcode).to_dict()["bounds_east"] 
+        bound_east = search.by_zipcode(recipient.zipcode).to_dict()["bounds_east"]
+         
         recipient.latitude = (bound_north + bound_south)/2
         recipient.longitude = (bound_west + bound_east)/2
         recipient.save()
+
+        # recipient_coords = (recipient.latitude, recipient.longitude)
+        # print("HI" + Donor.latitude)
         object_list = Donor.objects.filter(
-            Q(zipcode__icontains=query) | Q(points__icontains=query)
+            Q(zipcode__icontains=query)
+            # geodesic(recipient_coords, (Donorlatitude, Donor.object.longitude)).miles__range(0, 15)
         )
         return object_list
+
+class AboutView(generic.TemplateView):
+    template_name = 'notp/about.html'
 
 def form(request):
     if request.method == 'POST':
@@ -40,7 +52,7 @@ def form(request):
         bound_north = search.by_zipcode(donor.zipcode).to_dict()["bounds_north"] 
         bound_south = search.by_zipcode(donor.zipcode).to_dict()["bounds_south"] 
         bound_west = search.by_zipcode(donor.zipcode).to_dict()["bounds_west"]
-        bound_east = search.by_zipcode(donor.zipcode).to_dict()["bounds_east"] 
+        bound_east = search.by_zipcode(donor.zipcode).to_dict()["bounds_east"]
         donor.latitude = (bound_north + bound_south)/2
         donor.longitude = (bound_west + bound_east)/2
         donor.save()

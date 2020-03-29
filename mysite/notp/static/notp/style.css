@@ -1,0 +1,55 @@
+html { 
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 400; 
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+body {
+    margin: 0;
+}
+
+a:link {
+    text-decoration: none;
+    color: #303030;
+  }
+  
+a:visited {
+    text-decoration: none;
+    color: #303030;
+  }
+  
+span.links a:hover {
+    color: #5D9EFF;
+}
+
+span.links {
+    padding: 0;
+}
+
+a.donors {
+    color: #5D9EFF;
+}
+
+div.menu {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+span.logo a{
+    color: #FF6868;
+    font-size: 40px;
+}
+
+div.top {
+    height: 120px;
+    position: relative;
+}
+
+div.main {
+    height: 80vh;
+    background-color: #D7C0C0;
+}

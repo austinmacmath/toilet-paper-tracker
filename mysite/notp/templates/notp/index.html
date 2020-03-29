@@ -1,6 +1,33 @@
-<h1>Home <a href="{% url 'notp:form' %}">Donors</a></h1>
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NoTp | Need a roll of toilet paper?</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'notp/style.css' %}">
+    </head>
+    <body>
+        <div class="flex-container"> 
+            <div class="top">
+                <div class="menu">
+                    <span class="logo">
+                        <a href="{% url 'notp:index' %}">No<b>Tp</b></a> 
+                    </span>
+                    <span class="links">
+                        <a class="about" href="{% url 'notp:about' %}">About</a>
+                        <a class="donors" href="{% url 'notp:form' %}">Donors</a>
+                    </span>
+                </div>
+            </div>
 
-<form action="{% url 'notp:searchresult' %}" method="GET">
-    <input name="q" type="text" placeholder="Zip Code">
-    <input type="submit" value="Submit!"></input>
-</form>
+            <div class="main">
+                <form action="{% url 'notp:searchresult' %}" method="GET">
+                    <input name="q" type="text" placeholder="Zip Code">
+                    <input type="submit" value="Submit!"></input>
+                </form>
+            </div>
+            
+            <div class="bottom"></div>
+            
+        </div>
+    </body>
+</html>
