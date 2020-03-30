@@ -21,35 +21,85 @@ a:visited {
     color: #303030;
   }
   
-span.links a:hover {
-    color: #5D9EFF;
+ul.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding: 21px 20px;
+    /* top: 40px;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%; */
+
 }
 
-span.links {
-    padding: 0;
+li {
+    display: inline;
+    padding: 21px 20px;
+}
+
+li.links a:hover {
+    color: #5D9EFF;
 }
 
 a.donors {
     color: #5D9EFF;
 }
 
-div.menu {
-    position: absolute;
-    top: 40px;
-    left: 40px;
+li.donors {
+    float: right;
 }
 
-span.logo a{
+li.logo a{
     color: #FF6868;
     font-size: 40px;
 }
 
 div.top {
-    height: 120px;
+    height: 110px;
     position: relative;
 }
 
 div.main {
     height: 80vh;
     background-color: #D7C0C0;
+}
+
+div.title {
+    font-size: 72px;
+    position: absolute;
+    top: 30vh;
+    /* left: 10vw; */
+}
+
+div.titletext {
+    float: left;
+    padding-left: 7vw;
+    padding-right: 7vw;
+}
+
+div.logo {
+    float: left;
+    padding-left: 7vw;
+}
+
+input[type=text] {
+    padding: 15px 20px;
+    border: 1px solid #383838;
+    border-radius: 7px;
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-size: 20px;
+}
+
+input[type=submit] {
+    padding: 15px 20px;
+    background-color: #FF6868;
+    border-radius: 7px;
+    color: white;
+    font-family: Futura, "Trebuchet MS", Arial, sans-serif; 
+    font-style: normal; 
+    font-variant: normal;
+    font-size: 20px;
 }
