@@ -4,6 +4,7 @@
     <head>
         <title>NoTp | Need a roll of toilet paper?</title>
         <link rel="stylesheet" type="text/css" href="{% static 'notp/style.css' %}">
+        <link rel="icon" href="{% static 'notp/roll.png' %}"
     </head>
     <body>
         <div class="top">
@@ -16,15 +17,18 @@
         </div>
 
         <div class="main">
-            {% if object_list %}
-                    <ul>
-                    {% for donor in object_list %}
-                        <li>{{ donor.name }}: {{ donor.email }}</li>
-                    {% endfor %}
-                    </ul>
-                    {% else %}
-                        <p>No donors are available.</p>
-                    {% endif %}
+            <div class="soon">
+                {% if object_list %}
+                        <ul>
+                        {% for donor in object_list %}
+                            <li>{{ donor.name }}: {{ donor.email }}</li>
+                            <br>
+                        {% endfor %}
+                        </ul>
+                        {% else %}
+                            <p>No donors are available.</p>
+                        {% endif %}
+            </div>
         </div>
         
         <div class="bottom"></div>
