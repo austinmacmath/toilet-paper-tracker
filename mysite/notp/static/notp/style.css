@@ -13,7 +13,7 @@ body {
 
 a:link {
     text-decoration: none;
-    color: #303030;
+    color: #303030; 
   }
   
 a:visited {
@@ -63,6 +63,12 @@ div.top {
 div.main {
     height: 80vh;
     background-color: #D7C0C0;
+}
+
+div.more-text {
+    padding: 200px;
+    text-align: center;
+    font-size: 50px;
 }
 
 div.title {

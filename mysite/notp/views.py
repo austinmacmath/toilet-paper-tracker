@@ -24,6 +24,8 @@ class SearchResultView(generic.ListView):
         recipient = Recipient()
         recipient.zipcode = query
         bound_north = search.by_zipcode(recipient.zipcode).to_dict()["bounds_north"] 
+        if bound_north == None:
+            return None
         bound_south = search.by_zipcode(recipient.zipcode).to_dict()["bounds_south"] 
         bound_west = search.by_zipcode(recipient.zipcode).to_dict()["bounds_west"]
         bound_east = search.by_zipcode(recipient.zipcode).to_dict()["bounds_east"]
@@ -32,16 +34,16 @@ class SearchResultView(generic.ListView):
         recipient.longitude = (bound_west + bound_east)/2
         recipient.save()
 
-        # recipient_coords = (recipient.latitude, recipient.longitude)
-        # print("HI" + Donor.latitude)
         object_list = Donor.objects.filter(
             Q(zipcode__icontains=query)
-            # geodesic(recipient_coords, (Donorlatitude, Donor.object.longitude)).miles__range(0, 15)
         )
         return object_list
 
 class AboutView(generic.TemplateView):
     template_name = 'notp/about.html'
+
+class MoreItemsView(generic.TemplateView):
+    template_name = 'notp/moreitems.html'
 
 def form(request):
     if request.method == 'POST':

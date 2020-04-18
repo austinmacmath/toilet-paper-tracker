@@ -4,6 +4,7 @@ import django.utils.timezone
 from django.contrib.gis.db import models
 
 from django.db import models
+
 # Create your models here.
 class Donor(models.Model):
     name = models.CharField(max_length=200)
