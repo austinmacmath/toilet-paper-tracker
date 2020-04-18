@@ -65,10 +65,24 @@ div.main {
     background-color: #D7C0C0;
 }
 
-div.more-text {
+div.soon {
     padding: 200px;
     text-align: center;
     font-size: 50px;
+}
+
+form.form {
+    position: absolute;
+    left: 20vw;
+    top: 150px;
+}
+
+form.form div.text {
+    font-size: 50px;
+}
+
+input.form {
+    margin-top: 5px;
 }
 
 div.title {

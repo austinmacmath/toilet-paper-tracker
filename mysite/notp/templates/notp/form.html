@@ -16,16 +16,21 @@
         </div>
 
         <div class="main">
-            <form action="" method="POST">
+
+            <form class="form" action="" method="POST">
+                <div class="text">
+                    Donate today! 
+                </div>
+                <br>
 
                 {% csrf_token %}
-                <input type="text" name="name" placeholder="Name">
+                <input class="form" type="text" name="name" placeholder="Name">
                 <br>
-                <input type="text" name="email" placeholder="Email">
+                <input class="form" type="text" name="email" placeholder="Email">
                 <br>
-                <input type="text" name="zipcode" placeholder="Zip Code">
+                <input class="form" type="text" name="zipcode" placeholder="Zip Code">
                 <br>
-                <input type="submit" value="Submit!">
+                <input class="form" type="submit" value="Submit!">
         
             </form>
         </div>

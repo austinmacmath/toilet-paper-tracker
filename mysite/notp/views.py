@@ -52,6 +52,8 @@ def form(request):
         donor.email = request.POST.get('email')
         donor.zipcode = request.POST.get('zipcode')
         bound_north = search.by_zipcode(donor.zipcode).to_dict()["bounds_north"] 
+        if bound_north == None:
+            return render(request, 'notp/form.html')
         bound_south = search.by_zipcode(donor.zipcode).to_dict()["bounds_south"] 
         bound_west = search.by_zipcode(donor.zipcode).to_dict()["bounds_west"]
         bound_east = search.by_zipcode(donor.zipcode).to_dict()["bounds_east"]
